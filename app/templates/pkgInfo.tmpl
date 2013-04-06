@@ -1,0 +1,53 @@
+<div class="accordion-group pkgInfo">
+  <div class="accordion-heading">
+    <a class="accordion-toggle" data-toggle="collapse" data-parent="#sidebarPanes" href="#collapsePkgData">
+      Package info {{#if name}}: <strong>{{../name}}</strong>{{/if}}
+    </a>
+  </div>
+  <div id="collapsePkgData" class="accordion-body collapse in">
+    <div class="accordion-inner">
+      <div id='package'>
+          <a href='https://npmjs.org/package/{{name}}' target='_blank'><h4>{{name}}</h4></a>
+          <p class='description'>{{description}}</p>
+          <pre class="sh sh_sourceCode"><code>npm install {{name}}</code></pre>
+          {{#analytics}}
+          <p class='analytics'>
+              <strong>{{dlMonth}}</strong> downloads in the last month
+          </p>
+          {{/analytics}}
+          <table class="metadata table">
+      {{#github}}
+          <tr>
+              <th>GitHub</th>
+              <td>
+                  <a class="btn btn-small" href="{{url}}" target='_blank'><i class="icon-star"></i> {{watchers}}</a>
+                  <a class="btn btn-small" href="{{url}}" target='_blank'><i class="icon-random"></i> {{forks}}</a>
+              </td>
+          </tr>
+          {{/github}}
+          {{#if maintainers}}
+          <tr>
+            <th>Maintainers</th>
+            <td>
+              {{#each ../maintainers}}
+              <div class="user">
+              <a class="username" href="http://npmjs.org/~{{name}}" target='_blank'>
+                {{#if avatar}}
+                <img src="{{avatar}}" class="avatar">
+                {{/if}} {{name}}</a>
+              </div>
+              {{/each}}
+            </td>
+          </tr>
+          {{/if}}
+          <tr>
+            <th>Version</th>
+            <td>
+              <strong>{{version}}</strong>
+            </td>
+          </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>

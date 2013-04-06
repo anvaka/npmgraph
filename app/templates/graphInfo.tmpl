@@ -1,0 +1,42 @@
+<div class="accordion-group graphInfo">
+  <div class="accordion-heading">
+    <a class="accordion-toggle" data-toggle="collapse" data-parent="#sidebarPanes" href="#collapseGraphInfo">
+      Graph Info
+    </a>
+  </div>
+  <div id="collapseGraphInfo" class="accordion-body collapse">
+    <div class="accordion-inner">
+      <p class="text-success">Dependencies graph of <strong>{{rootName}}</strong> has <strong>{{nodesCount}}</strong> nodes and <strong>{{linksCount}}</strong> edges.</p>
+      {{#if maintainers}}
+      <h4>Maintainers</h4>
+          {{#each ../maintainers}}
+          <div class="userColor canfilter" data-name="{{person.email}}" data-filter="maintainers">
+          <a class="username" href="http://npmjs.org/~{{person.name}}" target='_blank'>
+            {{#if person.avatar}}
+            <img src="{{person.avatar}}" class="avatar">
+            {{/if}} {{person.name}} <small>x {{count}}</small></a> 
+          </div>
+          {{/each}}
+      {{/if}}
+
+      {{#if keywords}}
+      <h4>Keywords</h4>
+          {{#each ../keywords}}
+          <span class="licenseColor canfilter label" data-name="{{keyword}}" data-filter="keywords">
+            {{keyword}} <small>x {{count}}</small>
+          </span>
+          {{/each}}
+      {{/if}}
+
+      {{#if licenses}}
+      <h4>Licenses</h4>
+          {{#each ../licenses}}
+          <span class="licenseColor canfilter label" data-name="{{license.type}}" data-filter="licenses">
+            {{license.type}} <small>x {{count}}</small>
+          </span>
+          {{/each}}
+      {{/if}}
+
+    </div>
+  </div>
+</div>  
