@@ -6,6 +6,7 @@ define(['eventify'], function (eventify) {
         highlightNode: 'orange',
         textHighlightNode: 'black',
         textColor: '#cccccc',
+        nodeStrokeColor: '#ffffff',
         baseSize: 12
     };
 
@@ -22,11 +23,16 @@ define(['eventify'], function (eventify) {
 
     NodeUI.prototype._render = function () {
         this.ui = Viva.Graph.svg('g');
-        this.svgText = Viva.Graph.svg('text').attr('y', '-4px').attr('fill', theme.textColor).text(this.node.id),
+        this.svgText = Viva.Graph.svg('text')
+                .attr('y', '-4px')
+                .attr('fill', theme.textColor)
+                .text(this.node.id);
         this.rect = Viva.Graph.svg('rect')
                 .attr('width', theme.baseSize)
                 .attr('height', theme.baseSize)
-                .attr('fill', this.color);
+                .attr('fill', this.color)
+                .attr('stroke', theme.nodeStrokeColor)
+                .attr('stroke-width', 1);
 
         this.ui.append(this.svgText);
         this.ui.append(this.rect);
