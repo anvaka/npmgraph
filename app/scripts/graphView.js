@@ -42,10 +42,16 @@ define(['eventify'], function (eventify) {
         var that = this;
         $(this.ui).mouseenter(function () {
             that.rect.attr('fill', theme.highlightNode);
-            that.svgText.attr('fill', theme.textHighlightNode);
+            that.svgText.attr('fill', theme.textHighlightNode)
+                .attr('font-weight', 'bold')
+                .attr('stroke', '#ffffff')
+                .attr('stroke-width', 0.2);
         }).mouseleave(function () {
             that.rect.attr('fill', that.color);
-            that.svgText.attr('fill', that.textColor);
+            that.svgText.attr('fill', that.textColor)
+                .attr('font-weight', 'normal')
+                .attr('stroke', '#ffffff')
+                .attr('stroke-width', 0);
         }).click(function () {
             that.fireClick(that.node.data);
         });
