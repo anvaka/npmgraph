@@ -13,8 +13,8 @@ define(['eventify'], function (eventify) {
             pkgsPerRequest = 20;
 
         function addNode(pkg, graph) {
-            var pkgName = pkg._id.split('@')[0];
-            if (!graph.getNode(pkgName)) {
+            var pkgName = (pkg._id && pkg._id.split('@')[0]) || pkg.name;
+            if (pkgName && !graph.getNode(pkgName)) {
                 graph.addNode(pkgName, pkg);
             }
         }
