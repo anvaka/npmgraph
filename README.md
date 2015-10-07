@@ -1,7 +1,7 @@
 npmgraph
 ========
 
-[Visualization of NPM dependencies](http://www.yasiv.com/npm#view/bower). This is the souce code behind visualization.
+[Visualization of npm dependencies](http://www.yasiv.com/npm#view/bower). This is the souce code behind visualization.
 
 Usage
 -----
